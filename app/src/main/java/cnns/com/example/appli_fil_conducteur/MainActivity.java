@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import cnns.com.example.appli_fil_conducteur.Data;
+import android.view.View;
+
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -33,11 +35,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int itemId = item.getItemId();
+        View vue_ajout;
+        vue_ajout = findViewById(R.id.vue_ajout);
+
         switch(itemId){
             case R.id.add_todo_btn:
-                System.out.println("test");
+                //envoyer(vue_ajout);
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void envoyer (View view){
+    Intent intent = new Intent(this, Page_add.class);
+    startActivity(intent);
     }
 }
